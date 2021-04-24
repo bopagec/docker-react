@@ -2,9 +2,8 @@
 # Build our image using Dockerfile.dev
 # Tell Travis how ot run our test suit
 # Tell Travis how to deploy our code to AWS
-language: generic
-
 sudo: required
+language: generic
 
 services:
   - docker
