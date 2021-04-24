@@ -1,0 +1,49 @@
+build an react project from existing source code
+------------------------------------------------
+1)  create empty react project
+    npm install -g create-react-app ( this will install an empty react project in C:\Users\BOPAGEP\AppData\Roaming\npm\node_modules)
+
+2)  generate react project in
+    create-react-app frontend ( this will generate react project called frontend in the location where we in )
+
+3)  change to the frontend folder
+
+4)  npm run start   -   start up a development server. for development use only
+5)  npm run test    -   runs tests associated with the project
+6)  npm run build   -   builds a production version of the application
+
+7)  create a Dockerfile that we can run this application in development env.
+    Dockerfile.dev
+
+8)  build the image
+    docker build -f Dockerfile.dev . ( before build it please delete node_module directory in frontend folder which will be a duplicate)
+
+9)  start the development server
+    docker run -p3000:3000 85249b8bb659993a
+
+how to make sure that any changes that we do on source code will reflect on the image?
+---------------------------------------------------------------------------------------
+1)  use of a docker Volume to solve problem
+    we put a kind of reference in docker location inside of the folder in the local machine.
+    using git bash
+
+    docker build -f Dockerfile.dev .
+    docker run -p 3000:3000 -v /usr/app/node_modules -v $(pwd):/usr/app 407b25e059229c468f4519efdba11
+
+    * we have to put "/usr/app/node_modules" because $(pwd):/usr/app overwrites everything by $(pwd)
+
+2)  using of docker-compose
+        create docker-compose.yml
+    build using docker-compose
+        docker-compose up
+
+production version of the application
+--------------------------------------
+1)  we need a server called nginx web server that can route static contents.
+    create a Dockerfile for production that is responsible to create build of
+    node:alpine with nginx (engine-x) web server
+
+2)  build the docker image
+    docker build -t frontend-app .
+3)  run the image
+    docker run -p 8080:80 frontend-app
