@@ -3,10 +3,14 @@
 # Tell Travis how ot run our test suit
 # Tell Travis how to deploy our code to AWS
 language: generic
+
 sudo: required
+
 services:
   - docker
+
 before_install:
   - docker build -t docker-react -f Dockerfile.dev .
+
 script:
   - docker run -e CI=true docker-react npm run test
