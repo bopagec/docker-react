@@ -61,5 +61,7 @@ Travis CI is used to test and or deployment of your project to cloud ( in this c
     # Tell Travis how ot run our test suit
     # Tell Travis how to deploy our code to AWS
 
+3) add newly created files and commit changes to git repo and push it to the repo
+
 
 
