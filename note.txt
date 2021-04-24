@@ -47,3 +47,19 @@ production version of the application
     docker build -t frontend-app .
 3)  run the image
     docker run -p 8080:80 frontend-app
+
+CI integration
+--------------
+when we have set up github repo for the above project we must setup Travis CI for continuous integration.
+whenever any changes on github repo github will let know Travis CI for continuous integration.
+Travis CI is used to test and or deployment of your project to cloud ( in this case AWS )
+
+1)  link github and travis-ci
+2)  create .travis.yml find in the root project directory which contain series of instruction what to do
+    # Tell Travis we need a copy of docker running
+    # Build our image using Dockerfile.dev
+    # Tell Travis how ot run our test suit
+    # Tell Travis how to deploy our code to AWS
+
+
+

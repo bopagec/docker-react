@@ -1,0 +1,15 @@
+# Tell Travis we need a copy of docker running
+# Build our image using Dockerfile.dev
+# Tell Travis how ot run our test suit
+# Tell Travis how to deploy our code to AWS
+
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t docker-react -f Dockerfile.dev .
+
+script:
+  # test suit run and exists back to the command line with -- --coverage switch.
+  - docker run docker-react npm run test -- --coverage
