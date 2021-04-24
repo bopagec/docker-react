@@ -63,5 +63,10 @@ Travis CI is used to test and or deployment of your project to cloud ( in this c
 
 3) add newly created files and commit changes to git repo and push it to the repo
 
+AWS integration
+---------------
+create AWS elastic beanstalk with the platform as Docker and Linux 64bit ( not Linux 2 because Linux 2 version uses docker-compose.yml file to work where as
+Linux version uses only Dockerfile )
 
+add deploy section into .travis.yml file
 
