@@ -1,7 +1,3 @@
-# Tell Travis we need a copy of docker running
-# Build our image using Dockerfile.dev
-# Tell Travis how ot run our test suit
-# Tell Travis how to deploy our code to AWS
 sudo: required
 language: generic
 
